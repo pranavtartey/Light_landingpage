@@ -35,4 +35,8 @@
     @apply max-w-lg mx-auto 
   }
 
+  .card {
+    @apply p-10 border border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] w-full max-w-xs
+  }
+
 }
