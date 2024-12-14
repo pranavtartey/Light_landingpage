@@ -77,6 +77,7 @@ export const Pricing = () => {
                 popular,
               }) => (
                 <div
+                key={title}
                   className={twMerge(
                     "card",
                     inverse === true && "border-black bg-black text-white"
@@ -132,8 +133,8 @@ export const Pricing = () => {
                     {buttonText}
                   </button>
                   <ul className="flex flex-col gap-5 mt-8">
-                    {features.map((feature) => (
-                      <li className="flex  text-sm  items-center gap-4 font-semibold">
+                    {features.map((feature,idx) => (
+                      <li className="flex  text-sm  items-center gap-4 font-semibold" key={idx}>
                         <CheckIcon className="h-6 w-6" />
                         <span>{feature}</span>
                       </li>

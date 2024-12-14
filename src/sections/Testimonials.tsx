@@ -76,24 +76,25 @@ const thirdColumn = testimonials.slice(6, 9);
 const TestimonialsColumn = (props: {
   className?: string;
   testimonials: typeof testimonials;
-  duration?: number
+  duration?: number;
 }) => (
   <div className={props.className}>
-    <motion.div className="flex flex-col gap-6 pb-6"
-    animate={{
-      translateY: "-50%",
-    }}
-    transition={{
-      duration: props.duration ?? 10,
-      repeat : Infinity,
-      ease : 'linear',
-      repeatType : "loop"
-    }}
+    <motion.div
+      className="flex flex-col gap-6 pb-6"
+      animate={{
+        translateY: "-50%",
+      }}
+      transition={{
+        duration: props.duration ?? 10,
+        repeat: Infinity,
+        ease: "linear",
+        repeatType: "loop",
+      }}
     >
       {[...new Array(2)].fill(0).map((_, idx) => (
         <>
           {props.testimonials.map(({ imageSrc, name, text, username }) => (
-            <div className="card">
+            <div className="card" key={username}>
               <div>{text}</div>
               <div className="flex items-center gap-2 mt-5">
                 <Image
@@ -133,7 +134,7 @@ export const Testimonials = () => {
           </p>
         </div>
         <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] mt-10 max-h-[738px] overflow-hidden">
-          <TestimonialsColumn testimonials={firstColumn} duration={15}/>
+          <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn
             testimonials={secondColumn}
             className="max-md:hidden"
